@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drumusic | Presentación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #16213e;
+      padding: 12px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      border-bottom: 3px solid #7b2ff7;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    nav a {
+      color: #c77dff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    nav a:hover { color: #fff; }
+
+    /* ── BOTÓN PORTAL ── */
+    .btn-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #c77dff;
+      border: 2px solid #7b2ff7;
+      border-radius: 25px;
+      padding: 7px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: absolute;
+      right: 24px;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .btn-portal:hover {
+      background: #7b2ff7;
+      color: #fff;
+      box-shadow: 0 0 18px rgba(123,47,247,0.6);
+      transform: translateY(-2px);
+    }
+    .btn-portal:active {
+      transform: translateY(0px);
+    }
+    .btn-portal .btn-icon {
+      font-size: 17px;
+      line-height: 1;
+      transition: transform 0.3s;
+    }
+    .btn-portal:hover .btn-icon {
+      transform: rotate(15deg) scale(1.2);
+    }
+
+    header {
+      background-color: #0f3460;
+      text-align: center;
+      padding: 40px 20px 20px;
+      border-bottom: 3px solid #7b2ff7;
+    }
+    header h1 {
+      color: #c77dff;
+      font-size: 2.2em;
+      margin: 0 0 10px;
+    }
+
+    .indice {
+      background-color: #16213e;
+      padding: 15px 20px;
+      text-align: center;
+      border-bottom: 2px solid #7b2ff7;
+    }
+    .indice a {
+      color: #a0c4ff;
+      text-decoration: none;
+      margin: 4px 10px;
+      display: inline-block;
+      font-size: 14px;
+    }
+    .indice a:hover { color: #fff; text-decoration: underline; }
+
+    section {
+      max-width: 860px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+    section h2 {
+      color: #c77dff;
+      border-left: 5px solid #7b2ff7;
+      padding-left: 12px;
+      font-size: 1.4em;
+      margin-bottom: 12px;
+    }
+    .back {
+      display: inline-block;
+      font-size: 12px;
+      color: #a0c4ff;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    .back:hover { color: #fff; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border: 1px solid #2d2d6b;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    td img {
+      max-width: 140px;
+      border-radius: 6px;
+      display: block;
+      margin: 6px auto 0;
+    }
+
+    #datos-personales table   { background-color: #1e1b4b; }
+    #datos-personales td:first-child { background-color: #2e1a70; }
+    #instituto-trabajo table  { background-color: #1a2e1e; }
+    #instituto-trabajo td:first-child { background-color: #1a3d22; }
+    #datos-generales table    { background-color: #1e2a3a; }
+    #datos-generales td:first-child { background-color: #0f3460; }
+    #cancion-favorita table   { background-color: #2a1a2e; }
+    #cancion-favorita td:first-child { background-color: #3d0f52; }
+    #juego-favorito table     { background-color: #2a1a1a; }
+    #juego-favorito td:first-child { background-color: #4a1010; }
+    #mision-vision table      { background-color: #1a2a2e; }
+    #mision-vision td:first-child { background-color: #0a3040; }
+    #tareas-destacadas table  { background-color: #1e2a1a; }
+    #tareas-destacadas td     { background-color: #1a3a10; }
+    #redes-sociales table     { background-color: #2a2a1a; }
+    #redes-sociales td        { background-color: #3a3a10; text-align: center; }
+
+    .red-link {
+      color: #c77dff;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .red-link:hover { color: #fff; text-decoration: underline; }
+    .red-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+
+    .letra {
+      background-color: #200a30;
+      padding: 10px 14px;
+      border-left: 3px solid #c77dff;
+      font-size: 13px;
+      color: #ccc;
+      white-space: pre-line;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    footer {
+      background-color: #16213e;
+      text-align: center;
+      padding: 18px;
+      color: #888;
+      font-size: 13px;
+      border-top: 2px solid #7b2ff7;
+      margin-top: 40px;
+    }
+
+    .carrusel-wrapper {
+      overflow: hidden;
+      background-color: #16213e;
+      border-bottom: 2px solid #7b2ff7;
+      padding: 12px 0;
+    }
+    .carrusel-track {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      width: max-content;
+      animation: scroll-left 22s linear infinite;
+    }
+    .carrusel-track img {
+      height: 150px;
+      width: auto;
+      border-radius: 8px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    @keyframes scroll-left {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .carrusel-wrapper:hover .carrusel-track {
+      animation-play-state: paused;
+    }
+
+    .video-embed {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .audio-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+    }
+    audio {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .btn-volver {
+      display: inline-block;
+      padding: 8px 18px;
+      background-color: #7b2ff7;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+    .btn-volver:hover { background-color: #c77dff; color: #1a1a2e; }
+
+    .mapa-iframe {
+      width: 150px;
+      height: 120px;
+      border: 0;
+      border-radius: 8px;
+      display: block;
+      margin: 6px auto 0;
+    }
+
+    .tarea-card {
+      background-color: #1a3a10;
+      border: 1px solid #2d6b2d;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+    }
+    .tarea-titulo {
+      color: #c77dff;
+      font-weight: bold;
+      font-size: 15px;
+      margin: 0 0 10px 0;
+    }
+    .sheets-wrapper {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #3a3a6b;
+      background: #fff;
+    }
+    .sheets-iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+      display: block;
+    }
+    .sheets-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #a0c4ff;
+      text-decoration: none;
+    }
+    .sheets-link:hover { color: #fff; text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .btn-portal {
+        position: static;
+        margin-top: 6px;
+      }
+    }
+  </style>
+</head>
+<body id="inicio">
+
+<nav>
+  <a href="#inicio">DRUMUSIC</a>
+  <a href="https://forms.gle/inventado123abc" target="_blank" rel="noopener noreferrer">FORMULARIO</a>
+  <a href="#redes-sociales">REDES</a>
+
+  <!-- BOTÓN PORTAL DE CARGA -->
+  <a href="formulario.html" class="btn-portal">
+    <span class="btn-icon">🎚️</span> Portal de Carga
+  </a>
+</nav>
+
+<header>
+  <h1>Juan Gabriel Farfan Limache</h1>
+  <p style="color:#a0c4ff; margin:0;">Ingeniería de Sonido</p>
+</header>
+
+<div class="indice">
+  <a href="#datos-personales">Datos personales</a>
+  <a href="#instituto-trabajo">Instituto o trabajo</a>
+  <a href="#datos-generales">Datos generales</a>
+  <a href="#cancion-favorita">Canción favorita</a>
+  <a href="#juego-favorito">Juego favorito</a>
+  <a href="#mision-vision">Misión y visión</a>
+  <a href="#tareas-destacadas">Tareas destacadas</a>
+  <a href="#redes-sociales">Redes sociales</a>
+</div>
+
+<div class="carrusel-wrapper">
+  <div class="carrusel-track">
+    <img src="https://drive.google.com/thumbnail?id=12CsPp5XGM3LUWi0rAVCCRQtpR6yY13VS&sz=w400" alt="Foto 1">
+    <img src="https://drive.google.com/thumbnail?id=1Y0VwsYOSwrpja-8yiniYumLgxZakd9If&sz=w400" alt="Foto 2">
+    <img src="https://drive.google.com/thumbnail?id=1wMkJhGG5m9AiOW07SwO61iywJUxEy4ZB&sz=w400" alt="Foto 3">
+    <img src="https://drive.google.com/thumbnail?id=1hEvYv5bNyINwQ0Q1mApFQNOL74V2sq_F&sz=w400" alt="Foto 4">
+    <img src="https://drive.google.com/thumbnail?id=1--gDGDUzVqpCn3Nx3tvC58i6zy_jWtor&sz=w400" alt="Foto 5">
+    <img src="https://drive.google.com/thumbnail?id=10DQhicCN-vihRD63XRB9bz34S7-JzrNM&sz=w400" alt="Foto 6">
+    <img src="https://drive.google.com/thumbnail?id=12CsPp5XGM3LUWi0rAVCCRQtpR6yY13VS&sz=w400" alt="Foto 1">
+    <img src="https://drive.google.com/thumbnail?id=1Y0VwsYOSwrpja-8yiniYumLgxZakd9If&sz=w400" alt="Foto 2">
+    <img src="https://drive.google.com/thumbnail?id=1wMkJhGG5m9AiOW07SwO61iywJUxEy4ZB&sz=w400" alt="Foto 3">
+    <img src="https://drive.google.com/thumbnail?id=1hEvYv5bNyINwQ0Q1mApFQNOL74V2sq_F&sz=w400" alt="Foto 4">
+    <img src="https://drive.google.com/thumbnail?id=1--gDGDUzVqpCn3Nx3tvC58i6zy_jWtor&sz=w400" alt="Foto 5">
+    <img src="https://drive.google.com/thumbnail?id=10DQhicCN-vihRD63XRB9bz34S7-JzrNM&sz=w400" alt="Foto 6">
+  </div>
+</div>
+
+<section id="datos-personales">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Datos personales</h2>
+  <table>
+    <tr>
+      <td>
+        <strong>Nombre:</strong> Juan Gabriel Farfan Limache<br>
+        <strong>Edad:</strong> 22 años<br>
+        <strong>Pasatiempos:</strong><br>
+        Escuchar música<br>
+        Practicar guitarra y bajo<br>
+        Ver anime
+      </td>
+      <td style="text-align:center; width:160px;">
+        Foto de perfil
+        <img src="https://drive.google.com/thumbnail?id=12CsPp5XGM3LUWi0rAVCCRQtpR6yY13VS&sz=w300" alt="Foto de perfil"/>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section id="instituto-trabajo">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Instituto o trabajo</h2>
+  <table>
+    <tr>
+      <td>Universidad Técnica Privada Cosmos — <strong>UNITEPC</strong></td>
+      <td style="text-align:center; width:160px;">
+        Logo UNITEPC
+        <img src="https://drive.google.com/thumbnail?id=1M_VEyKPxfVW86s1-OBOlpt63goZpG05k&sz=w300" alt="Logo UNITEPC"/>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>Curso actual: Ingeniería de Sonido.</td>
+    </tr>
+  </table>
+</section>
+
+<section id="datos-generales">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Datos generales</h2>
+  <table>
+    <tr>
+      <td>
+        <strong>Nacionalidad:</strong> Bolivia<br>
+        <strong>Idioma:</strong> Español<br>
+        <strong>Color favorito:</strong> Negro<br>
+        <strong>Ubicación:</strong> La Paz, Bolivia<br>
+        <a href="https://maps.app.goo.gl/18UaBVPuurN1Ephe8" target="_blank" rel="noopener noreferrer" style="color:#a0c4ff;">Abrir en Maps</a>
+      </td>
+      <td style="width:170px; text-align:center;">
+        🗺️ Mapa de referencia
+        <iframe
+          class="mapa-iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3216.86047505628!2d-68.12559406278166!3d-16.500160746003186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f2068c3aeca0d%3A0xeb87d998dcb79992!2sMiraflores%2C%20La%20Paz!5e0!3m2!1ses-419!2sbo!4v1778645336529!5m2!1ses-419!2sbo"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa Miraflores, La Paz">
+        </iframe>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section id="cancion-favorita">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Canción favorita</h2>
+  <table>
+    <tr>
+      <td>
+        <strong>Título:</strong> Sin suerte en el amor<br>
+        <strong>Artista:</strong> Emerzon<br><br>
+        <div class="letra">Triste mi destino
+No tengo suerte en el amor
+Llorando en las cantinas
+Tomando por tu amor
+Y si tomo y me emborracho
+Más me acuerdo yo de ti
+En las cantinas tomaré
+Me embriagaré por tu amor
+Triste mi destino
+No tengo suerte en el amor
+Llorando en las cantinas
+Tomando por tu amor
+Y si tomo y me emborracho
+Más me acuerdo yo de ti
+En las cantinas tomaré
+Me embriagaré por tu amor
+Y si tomo y me emborracho
+Más me acuerdo yo de ti
+En las cantinas tomaré
+Me embriagaré por tu amor</div>
+      </td>
+      <td style="width:220px; text-align:center; vertical-align:middle;">
+        <iframe
+          class="video-embed"
+          src="https://drive.google.com/file/d/1wZtgqjklEiaxT1M8a-pTGjH2A-mwLK3j/preview"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="Video canción favorita">
+        </iframe>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <div class="audio-wrapper">
+          <p style="margin:0 0 8px; font-size:13px; color:#c77dff; font-weight:bold;">🎵 Área de Canción</p>
+          <iframe
+            src="https://drive.google.com/file/d/1mkRHJwCZDEXabWLa_UwmlS3iSUPkVO31/preview"
+            width="100%"
+            height="80"
+            style="max-width:400px; border:none; border-radius:8px; display:block; margin:0 auto;"
+            allow="autoplay"
+            title="Reproductor de audio">
+          </iframe>
+          <div style="display:flex; gap:10px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
+            <a href="https://drive.google.com/uc?export=download&id=1mkRHJwCZDEXabWLa_UwmlS3iSUPkVO31"
+               class="btn-volver" target="_blank" rel="noopener noreferrer">⬇ Descargar audio</a>
+            <a href="#inicio" class="btn-volver">↑ Volver a Inicio</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section id="juego-favorito">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Juego favorito</h2>
+  <table>
+    <tr>
+      <td>
+        <strong>Videojuego favorito</strong><br>
+        <strong>Nombre:</strong> Clash of Clans<br>
+        <strong>Logros destacados:</strong><br>
+        Mejorar ayuntamiento al nivel 12<br>
+        Conseguir los constructores de riesgo.
+      </td>
+      <td style="text-align:center; width:160px;">
+        CLASH OF CLANS
+        <img src="https://drive.google.com/thumbnail?id=19aFPO10Ud-6PyYrthI_Xdo-mW5vWogD8&sz=w300" alt="Clash of Clans"/>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <strong>Juego de cartas favorito</strong><br>
+        <strong>Nombre:</strong> Yu-Gi-Oh<br>
+        <strong>Habilidades destacadas:</strong><br>
+        Saber de memoria los efectos de las cartas.<br>
+        Perfección en las diferentes formas de invocación.
+      </td>
+      <td style="text-align:center; width:160px;">
+        YU-GI-OH
+        <img src="https://drive.google.com/thumbnail?id=1IiNhuRwu-0yiWc5i9aFFOWOZXenRb4EM&sz=w300" alt="Yu-Gi-Oh"/>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section id="mision-vision">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Misión y visión</h2>
+  <table>
+    <tr>
+      <td>
+        <strong>Misión</strong><br><br>
+        Lograr salir de la carrera a toda costa para poder dar honor, prestigio y felicidad a mi familia y apellido.
+      </td>
+      <td style="text-align:center; width:160px;">
+        <img src="https://drive.google.com/thumbnail?id=1N_bwSVW11hecPfEsd5ruWkVVkspuJt_L&sz=w300" alt="Misión"/>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <strong>Visión</strong><br><br>
+        Poder desarrollar mi propia empresa de sonido con un estudio de grabación, mejorar en la música como en producción musical.
+      </td>
+      <td style="text-align:center; width:160px;">
+        <img src="https://drive.google.com/thumbnail?id=1xrccHy_OIPO5HKBFDwmQAvOS18pfTjep&sz=w300" alt="Visión"/>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section id="tareas-destacadas">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Tareas destacadas</h2>
+  <div class="tarea-card">
+    <p class="tarea-titulo">Tarea 1</p>
+    <div class="sheets-wrapper">
+      <iframe src="https://docs.google.com/spreadsheets/d/13RST1_G_N7NJGRONx4h-sNFYCkFnce_nN_DOqYm705U/pubhtml?widget=true&headers=false"
+        class="sheets-iframe" loading="lazy" title="Tarea 1 Google Sheets"></iframe>
+    </div>
+    <a href="https://docs.google.com/spreadsheets/d/13RST1_G_N7NJGRONx4h-sNFYCkFnce_nN_DOqYm705U/edit?usp=sharing"
+       target="_blank" rel="noopener noreferrer" class="sheets-link">↗ Abrir en Google Sheets</a>
+  </div>
+  <div class="tarea-card">
+    <p class="tarea-titulo">Tarea 2</p>
+    <div class="sheets-wrapper">
+      <iframe src="https://docs.google.com/spreadsheets/d/1fwoLx7ZnPE_-hOWcslUNS053CQHDmLroUCoHsS2FUkw/pubhtml?widget=true&headers=false"
+        class="sheets-iframe" loading="lazy" title="Tarea 2 Google Sheets"></iframe>
+    </div>
+    <a href="https://docs.google.com/spreadsheets/d/1fwoLx7ZnPE_-hOWcslUNS053CQHDmLroUCoHsS2FUkw/edit?usp=sharing"
+       target="_blank" rel="noopener noreferrer" class="sheets-link">↗ Abrir en Google Sheets</a>
+  </div>
+  <div class="tarea-card">
+    <p class="tarea-titulo">Tarea 3</p>
+    <div class="sheets-wrapper">
+      <iframe src="https://docs.google.com/spreadsheets/d/1a-MTFm0nDBqk1GpZ_pk8vK2BqFJroqiLa-z0QGCxhYs/preview"
+        class="sheets-iframe" loading="lazy" title="Tarea 3 Google Sheets"></iframe>
+    </div>
+    <a href="https://docs.google.com/spreadsheets/d/1a-MTFm0nDBqk1GpZ_pk8vK2BqFJroqiLa-z0QGCxhYs/edit?usp=sharing"
+       target="_blank" rel="noopener noreferrer" class="sheets-link">↗ Abrir en Google Sheets</a>
+  </div>
+</section>
+
+<section id="redes-sociales">
+  <a class="back" href="#inicio">↑ Inicio</a>
+  <h2>Redes sociales</h2>
+  <table>
+    <tr>
+      <td>
+        <span class="red-icon">🎵</span>
+        <a class="red-link" href="https://www.tiktok.com/@farfayvuypq?_r=1&_t=ZS-96JhSdwaK6m" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  &copy; 2026 JUAN FARFAN — DRUMUSIC
+</footer>
+
+</body>
+</html>
